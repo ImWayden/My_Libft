@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_istrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wayden <wayden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 06:31:55 by therodri          #+#    #+#             */
-/*   Updated: 2024/02/12 23:00:04 by wayden           ###   ########.fr       */
+/*   Created: 2024/02/12 22:36:50 by wayden            #+#    #+#             */
+/*   Updated: 2024/02/12 22:40:38 by wayden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/libft.h"
-/*
-	protected version of strlen
-	if str = NULL return 0 instead of segfault.
-*/
-size_t	ft_strlen(const char *str)
+
+int	ft_istrchr(const char *s, int c)
 {
 	int	i;
 
 	i = -1;
-	if (!str)
-		return (0);
-	while (str[++i])
-		continue ;
-	return (i);
+	while (s[++i])
+		if (s[i] == (char)c)
+			return (i);
+	return (-1);
 }

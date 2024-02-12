@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: therodri <therodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wayden <wayden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:19:57 by therodri          #+#    #+#             */
-/*   Updated: 2022/11/12 00:27:36 by therodri         ###   ########.fr       */
+/*   Updated: 2024/02/12 23:35:29 by wayden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,16 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-/*Libc*/
+# include "defines.h"
+# include "get_next_line.h"
+/*
+	const char *s = string you read from
+	int c = ascii of the character to found
+
+	return the index of the first caracter occurence
+	or -1 if not found 
+*/
+int		ft_istrchr(const char *s, int c);
 char	*ft_strchr(const char *s, int c);
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
@@ -33,6 +42,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 char	*ft_strdup(const char *s);
+char	*ft_strcat(char *dest, char *src);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlen(const char *c);
@@ -50,6 +60,18 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 char	*ft_strcat(char *dest, char *src);
 char	*ft_strjoin(char const *s1, char const *s2);
+/*
+strjoin with the possibility to free S1 and/or S2
+by sending flags to tofree
+exemple call : char	*ft_strjoinf(char *s1, char *s2, S1 | S2)
+*/
+char	*ft_strjoinf(char *s1, char *s2, int tofree);
+/*
+	Alloue (avec malloc(3)) et retourne une chaîne de
+	caractères issue de la chaîne ’s’.
+	Cette nouvelle chaîne commence à l’index ’start’ et
+	a pour taille maximale ’len’.
+*/
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strtrim(char const *s1, char const *set);

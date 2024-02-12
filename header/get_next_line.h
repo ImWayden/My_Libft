@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: therodri <therodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wayden <wayden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 07:48:32 by therodri          #+#    #+#             */
-/*   Updated: 2022/12/10 23:34:20 by therodri         ###   ########.fr       */
+/*   Updated: 2024/02/12 23:11:48 by wayden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,17 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
 # endif
-
+/*
+	fd = file descriptor from where the line are read
+	return the next line in the file;
+	multiple call returns nexts line
+*/
 char		*get_next_line(int fd);
 
 typedef struct s_line
 {
 	char	*line;
-	int		end;
-	int		i;
-	int		j;
-	int		len;
-
+	int		index;
+	int		ret_read;
 }			t_line;
 #endif

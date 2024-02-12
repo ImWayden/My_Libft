@@ -1,19 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   strcat.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wayden <wayden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 00:21:49 by therodri          #+#    #+#             */
-/*   Updated: 2024/02/12 22:52:06 by wayden           ###   ########.fr       */
+/*   Created: 2024/02/12 22:56:24 by wayden            #+#    #+#             */
+/*   Updated: 2024/02/12 23:17:07 by wayden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-Alloue (avec malloc(3)) et retourne une nouvelle
-chaîne, résultat de la concaténation de s1 et s2.
-*/
 #include "../../header/libft.h"
 
 char	*ft_strcat(char *dest, char *src)
@@ -32,28 +28,4 @@ char	*ft_strcat(char *dest, char *src)
 	}
 	dest[i + j] = '\0';
 	return (dest);
-}
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	int		i;
-	int		size;
-	char	*str;
-
-	i = -1;
-	size = 0;
-	if (!s1[0])
-		return (ft_strdup(s2));
-	if (!s2[0])
-		return (ft_strdup(s1));
-	while (s1 && s1[size])
-		size++;
-	while (s2 && s2[++i])
-		size++;
-	str = ft_calloc(sizeof(char), size + 1);
-	if (!str)
-		return (NULL);
-	str[size] = '\0';
-	ft_strcat(str, (char *)s1);
-	return (ft_strcat(str, (char *)s2));
 }

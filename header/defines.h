@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   gnl_defines.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wayden <wayden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 06:31:55 by therodri          #+#    #+#             */
-/*   Updated: 2024/02/12 23:00:04 by wayden           ###   ########.fr       */
+/*   Created: 2024/02/12 23:07:52 by wayden            #+#    #+#             */
+/*   Updated: 2024/02/12 23:11:36 by wayden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../header/libft.h"
-/*
-	protected version of strlen
-	if str = NULL return 0 instead of segfault.
-*/
-size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = -1;
-	if (!str)
-		return (0);
-	while (str[++i])
-		continue ;
-	return (i);
-}
+#ifndef DEFINES_H
+# define DEFINES_H
+# define S0 0b00
+# define S1 0b01
+# define S2 0b10
+#endif
